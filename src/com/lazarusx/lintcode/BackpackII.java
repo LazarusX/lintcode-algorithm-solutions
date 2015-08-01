@@ -22,7 +22,6 @@ public class BackpackII {
 
         for (int i = 1; i < A.length; i++) {
             for (int j = m; j >= 0; j--) {
-                maxes[j] = maxes[j];
                 if (j >= A[i] && maxes[j - A[i]] + V[i] > maxes[j]) {
                     maxes[j] = maxes[j - A[i]] + V[i];
                 }
