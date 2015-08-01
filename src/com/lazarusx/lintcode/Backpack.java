@@ -21,15 +21,12 @@ public class Backpack {
         }
 
         for (int i = 1; i < A.length; i++) {
-            int[] temp = new int[m + 1];
-            for (int j = 1; j <= m; j++) {
-                temp[j] = maxes[j];
-                if (j >= A[i] && maxes[j - A[i]] + A[i] > temp[j]) {
-                    temp[j] = maxes[j - A[i]] + A[i];
+            for (int j = m; j >= 0; j--) {
+                maxes[j] = maxes[j];
+                if (j >= A[i] && maxes[j - A[i]] + A[i] > maxes[j]) {
+                    maxes[j] = maxes[j - A[i]] + A[i];
                 }
             }
-
-            System.arraycopy(temp, 0, maxes, 0, m + 1);
         }
 
         return maxes[m];
